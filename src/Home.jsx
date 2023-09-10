@@ -1,6 +1,5 @@
 import { Navigate } from "react-router-dom";
 import { useUser } from "./UserContext";
-import { Logout, Button } from "./Logout";
 
 function Home() {
   const [user] = useUser();
@@ -10,7 +9,6 @@ function Home() {
   return (
     <div>
       <h1>Bienvenido!</h1>
-      <Logout />
     </div>
   );
 }

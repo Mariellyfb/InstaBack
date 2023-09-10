@@ -11,8 +11,8 @@ function Signup() {
   const [password, setPassword] = useState("");
   /*   const [passwordV, setPasswordV] = useState(""); */
   const [error, setError] = useState();
-  /* 
-  if (user) return <Navigate to="/" />; */
+
+  if (user) return <Navigate to="/" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
