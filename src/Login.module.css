@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  gap: 2rem;
+}
+.formContainer {
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /*  gap: 4rem; */
+}
+.formContainer > h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 5rem;
+}
+
+.formContainer > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.formContainer > form > p {
+  max-width: 18rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.formContainer > form > label > input {
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.7rem;
+  background-color: #f8fafc;
+  border-color: #bdcad6;
+}
+.formContainer > form > footer {
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+.formContainer > form > footer > a {
+  text-decoration: none;
+}
+/* .signup {
+  display: flex;
+  justify-content: center;
+}
+
+.signup > img {
+  display: none;
+} */
+.formContainer > form > button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 70px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.formContainer > form button:hover {
+  background-color: #0056b3;
+}
