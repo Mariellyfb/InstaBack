@@ -1,0 +1,57 @@
+/* Estilos para el contenedor principal */
+.containerPosts {
+  /*   max-width: 600px; */
+  margin: 0 auto;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+}
+.containerPosts > h1 > span {
+  font-size: 2.5rem;
+}
+
+/* Estilos para el botón de carga */
+.containerPosts > button {
+  background-color: #3897f0;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilos para cada publicación */
+.containerPosts > div {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 5px;
+}
+
+/* Estilos para el contenido de cada publicación */
+div > div > div {
+  padding: 10px;
+}
+
+/* Estilos para el texto de la descripción */
+.containerPosts > p {
+  margin: 0;
+}
+
+/* Estilos para el número de likes */
+div > div > div > span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Estilos para las imágenes de las publicaciones */
+.containerPosts img {
+  align-items: center;
+  justify-content: center;
+  width: 600px;
+  height: 800px;
+  /*   height: auto; */
+  display: block;
+  margin-top: 10px;
+}

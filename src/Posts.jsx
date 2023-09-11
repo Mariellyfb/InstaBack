@@ -1,35 +1,20 @@
-import { useState } from "react";
+import usePosts from "./hooks/usePosts";
+import { containerPosts } from "./Posts.module.css";
+import Like from "./Like";
 
 function Posts() {
-  const [posts, setPosts] = useState([]);
-
-  const handleLoad = async () => {
-    console.log("Todo: cargar datos");
-
-    try {
-      const res = await fetch("http://localhost:4000/posts/home");
-
-      if (!res.ok) {
-        throw new Error("La solicitud no se completó correctamente");
-      }
-
-      const data = await res.json();
-      setPosts(data.data); // Establece data.data en lugar de data
-      console.log(data.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
   const apiUrl = "http://localhost:4000/";
-
+  const posts = usePosts();
   return (
-    <div>
-      <button onClick={handleLoad}>Cargar Publicaciones</button>
+    <div className={containerPosts}>
       {posts.map((post) => (
         <div key={post.id}>
+          {post.userame}
+          {post.createdAt}
+          <img src={`${apiUrl}${post.photo}`} />
           {post.description}
           {post.numLikes}
-          <img src={`${apiUrl}${post.photo}`} />
+          <Like />
         </div>
       ))}
     </div>
