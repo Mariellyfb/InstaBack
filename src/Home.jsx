@@ -1,5 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useUser } from "./UserContext";
+import Nav from "./Nav";
+import Posts from "./Posts";
 
 function Home() {
   const [user] = useUser();
@@ -8,7 +10,9 @@ function Home() {
 
   return (
     <div>
+      <Nav />
       <h1>Bienvenido!</h1>
+      <Posts />
     </div>
   );
 }
