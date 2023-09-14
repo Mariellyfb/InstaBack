@@ -1,9 +1,9 @@
-import usePosts from "./hooks/usePosts";
-import { containerPosts } from "./Posts.module.css";
-import Like from "./Like";
+import usePosts from "../hooks/usePosts";
+import { containerPosts } from "../Posts.module.css";
+import Like from "../components/Like";
 
 function Posts() {
-  const apiUrl = "http://localhost:4000/";
+  const url = import.meta.env.VITE_API_URL;
   const posts = usePosts();
   return (
     <div className={containerPosts}>
@@ -11,7 +11,7 @@ function Posts() {
         <div key={post.id}>
           {post.userame}
           {post.createdAt}
-          <img src={`${apiUrl}${post.photo}`} />
+          <img src={`${url}${post.photo}`} />
           {post.description}
           {post.numLikes}
           <Like />

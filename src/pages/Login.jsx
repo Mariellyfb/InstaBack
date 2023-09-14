@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useUser } from "./UserContext";
+import { useUser } from "../context/UserContext";
 import { formContainer } from "./Login.module.css";
 
 function Login() {
@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  if (user) return <Navigate to="/" />;
+  //if (user) return <Navigate to="/" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

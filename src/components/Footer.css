@@ -1,23 +1,13 @@
-/* Nav.css */
+/* Footer.css */
 
-nav {
+footer {
   display: flex;
   /*   justify-content: space-between; */
   align-items: center;
   background-color: #007bff;
   padding: 1rem;
-}
-
-nav h1 {
   font-family: "Dancing Script", cursive;
   font-size: 3rem;
   background-color: transparent;
   margin: 0;
-}
-
-nav .arrow {
-  padding-left: 1rem;
-  background-color: transparent;
-  font-size: 2rem;
-  transform: rotate(90deg);
 }

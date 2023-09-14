@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useUser } from "./UserContext";
-import { formContainer, signup } from "./Signup.module.css";
-import imagenSignup from "./assets/signup.png";
+import { useUser } from "../context/UserContext";
+import { formContainer, signup } from "../Signup.module.css";
+//import {signup} from "../assets";
 
 function Signup() {
   const [user, setUser] = useUser();
@@ -12,7 +12,7 @@ function Signup() {
   /*   const [passwordV, setPasswordV] = useState(""); */
   const [error, setError] = useState();
 
-  if (user) return <Navigate to="/" />;
+  /*   if (user) return <Navigate to="/" />; */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,9 +31,14 @@ function Signup() {
     }
   };
 
+  //<img src={imagenSignup} alt="" />
+
+  ////////////////////////////////////////////////////////////
+  // ANDA AL PUNTO ENV
+  ///////////////////////////////////////////////////////////////
+
   return (
     <div className={signup}>
-      <img src={imagenSignup} alt="" />
       <div className={formContainer}>
         <h1>InstaHack</h1>
         <form onSubmit={handleSubmit}>
