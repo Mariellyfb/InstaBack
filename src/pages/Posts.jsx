@@ -1,5 +1,5 @@
 import usePosts from "../hooks/usePosts";
-import { containerPosts } from "../Posts.module.css";
+import { containerPosts } from "./Posts.module.css";
 import Like from "../components/Like";
 
 function Posts() {

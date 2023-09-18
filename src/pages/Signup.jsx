@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import { formContainer, signup } from "../Signup.module.css";
-//import {signup} from "../assets";
+import { formContainer, signup } from "./Signup.module.css";
+//import { signUp } from "../assets/signup.png";
 
 function Signup() {
   const [user, setUser] = useUser();
