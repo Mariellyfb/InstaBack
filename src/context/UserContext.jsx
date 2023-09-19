@@ -1,4 +1,7 @@
 import { createContext, useContext, useState } from "react";
+//Evaluar meter aqui un servicio con una funcion para abtener los datos de usuario
+
+//Utilizar aqui lo de obtener el token
 
 const UserContext = createContext();
 

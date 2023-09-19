@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  /*   justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   background-color: #007bff;
   padding: 1rem;
