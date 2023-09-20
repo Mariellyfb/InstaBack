@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+import { useUser } from "../context/UseContext";
 import { formContainer } from "./Login.module.css";
 
 function Login() {
@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  //if (user) return <Navigate to="/" />;
+  if (user) return <Navigate to="/" />;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,13 +18,15 @@ function Login() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
+
     const data = await res.json();
-    console.log(data);
+    const token = data.data.token;
+
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
-      console.log(data);
     } else {
       setUser(data);
+      console.log(data.data.token);
     }
   };
 

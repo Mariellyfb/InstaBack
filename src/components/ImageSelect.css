@@ -1,0 +1,13 @@
+.image-select {
+  margin: 10px;
+}
+.image-select .preview {
+  border: 1px solid #333;
+  height: 100px;
+  width: 100px;
+  background-position: center;
+  background-size: cover;
+}
+.image-select input {
+  display: none;
+}
