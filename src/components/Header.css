@@ -2,7 +2,7 @@
 
 header {
   display: flex;
-  /*   justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   background-color: #007bff;
   padding: 1rem;
@@ -20,4 +20,9 @@ header .arrow {
   background-color: transparent;
   font-size: 2rem;
   transform: rotate(90deg);
+}
+header > .icon {
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 1.5rem;
 }

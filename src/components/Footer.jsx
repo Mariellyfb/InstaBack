@@ -1,7 +1,7 @@
 import "../components/Footer.css";
 
-const Footer = () => {
-  return <footer>© 2023 HACK A BOSS</footer>;
-};
+function Footer() {
+  return <footer>© 2023 InstaHack. All rights reserved.</footer>;
+}
 
 export default Footer;
