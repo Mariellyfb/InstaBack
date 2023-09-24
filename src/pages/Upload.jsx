@@ -1,10 +1,11 @@
 import { useState } from "react";
 import ImageSelect from "../components/ImageSelect";
+import usePosts from "../hooks/usePosts";
 
 function Upload() {
   const [post, setPost] = useState(null); // Cambia la inicialización a null
   const [description, setDescription] = useState("");
-
+  const posts = usePosts();
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("TODO: Subir ...", post);
@@ -21,22 +22,22 @@ function Upload() {
       },
     });
     const data = await res.json();
-    console.log("Got", data);
+    /*  console.log("Got", data);
+    console.log(description); */
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <h1>Crear una Nueva Publicación</h1>
       <ImageSelect onChange={setPost} />
-      <label htmlFor="description">Descripción (obligatoria):</label>
+      <label>Descripción (obligatoria):</label>
       <input
         type="text"
-        id="description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
-      <button>Enviar</button>
+      ;<button>Enviar</button>
     </form>
   );
 }

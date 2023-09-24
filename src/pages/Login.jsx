@@ -9,7 +9,7 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
 
-  if (user) return <Navigate to="/" />;
+  /* if (user) return <Navigate to="/" />; */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,13 +20,15 @@ function Login() {
     });
 
     const data = await res.json();
-    const token = data.data.token;
+    /* const token = data.data.token; */
 
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
     } else {
       setUser(data);
+      console.log(data);
       console.log(data.data.token);
+      console.log(data.data.description);
     }
   };
 
