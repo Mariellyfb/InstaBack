@@ -67,15 +67,16 @@ function NavPrincipal() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
   const navigate = useNavigate();
   const { setSearchTerm } = usePostsContext();
 
   const logout = () => {
     localStorage.removeItem("token");
-    return navigate("/");
+    return navigate("/login");
   };
 
-  const settings = [{ text: "Logout", to: logout }];
+  const settings = [{ text: `User : ${user}` }, { text: "Logout", to: logout }];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -93,7 +94,7 @@ function NavPrincipal() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -193,12 +194,19 @@ function NavPrincipal() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {token && (
+            <NavLink to="/posts">
+              <Button variant="contained" sx={{ backgroundColor: "orange" }}>
+                Subir post
+              </Button>
+            </NavLink>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             {token ? (
               <Tooltip title="Configuraciones">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Profile" src="/static/images/avatar/2.jpg" />
+                  <Avatar alt={user || "d"} src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
             ) : (

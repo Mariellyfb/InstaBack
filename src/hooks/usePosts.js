@@ -8,7 +8,7 @@ function usePosts() {
       .then((data) => setPosts(data.data));
   }, []);
   const like = async (postId, token) => {
-    const res = await fetch(`http://localhost:4000/posts/likes/${postId}`, {
+    const res = await fetch(`http://localhost:4000/posts/${post.id}/likes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
