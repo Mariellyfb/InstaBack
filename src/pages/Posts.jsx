@@ -1,13 +1,13 @@
 import usePosts from "../hooks/usePosts";
+import { useState, useEffect } from "react";
 import { containerPosts } from "./Posts.module.css";
 import Like from "../components/Like";
+import { usePostsContext } from "../context/UseContext";
 
-function Posts() {
-  const posts = usePosts();
+export function Posts() {
+  const { like } = usePosts();
+  const { posts } = usePostsContext();
   const url = `${import.meta.env.VITE_API_URL}`;
-
-  console.log(posts);
-  console.log(url);
 
   return (
     <div className={containerPosts}>
@@ -15,12 +15,16 @@ function Posts() {
         posts.map((post) => (
           <div key={post.id}>
             {post.username}
-            {post.id}
+
             {/*{post.createdAt}*/}
-            <img src={`${url}${post.photo}`} alt={post.description} />
+            <img
+              style={{ width: "100%", height: "100%" }}
+              src={`${url}${post.photo}`}
+              alt={post.description}
+            />
             <span> {post.description}</span>
-            {post.numLikes}
-            <Like postId={post.id} />
+
+            <Like post={post} like={like} />
           </div>
         ))
       ) : (

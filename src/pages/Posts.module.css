@@ -29,11 +29,6 @@
   border-radius: 5px;
 }
 
-/* Estilos para el contenido de cada publicación */
-div > div > div {
-  padding: 10px;
-}
-
 /* Estilos para el texto de la descripción */
 .containerPosts > p {
   margin: 0;

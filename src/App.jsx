@@ -6,10 +6,13 @@ import {
 } from "react-router-dom";
 
 import Home from "./pages/Home";
-import Login from "./pages/Login";
+import { Login } from "./pages/Login";
 import Signup from "./pages/Signup";
 import Footer from "./components/Footer";
 import Upload from "./pages/Upload";
+import { PostUser } from "./pages/PostUser";
+import AuthToken from "./auth/AuthToken";
+import "./App.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,7 +20,15 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<Signup />} />
-      <Route path="posts" element={<Upload />} />
+      <Route
+        path="posts"
+        element={
+          <AuthToken>
+            <Upload />
+          </AuthToken>
+        }
+      />
+      <Route path="posts/:id" element={<PostUser />} />
     </Route>
   )
 );

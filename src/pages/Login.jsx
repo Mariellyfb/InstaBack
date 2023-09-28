@@ -1,31 +1,36 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUser } from "../context/UseContext";
 import { formContainer } from "./Login.module.css";
-
-function Login() {
+import { saveToken } from "../utils/token";
+import { useNavigate } from "react-router-dom"; // Asegúrate de que la importación sea correcta
+const url = import.meta.env.VITE_API_URL;
+export const Login = () => {
   const [user, setUser] = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
+  const navigate = useNavigate();
+  /*if (user) navigator("/"); */
+  //  return <Navigate to="/" />;
 
-  /* if (user) return <Navigate to="/" />; */
-
+  console.log(import.meta.env.VITE_API_URL);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:4000/users/login", {
+    const res = await fetch(`${url}users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-
+    console.log(res);
     const data = await res.json();
     /* const token = data.data.token; */
-
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
     } else {
       setUser(data);
+      saveToken(data.data.token);
+      navigate("/");
       console.log(data);
       console.log(data.data.token);
       console.log(data.data.description);
@@ -69,6 +74,6 @@ function Login() {
       </form>
     </div>
   );
-}
+};
 
-export default Login;
+/* export default Login; */
