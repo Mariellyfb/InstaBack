@@ -92,7 +92,11 @@ function NavPrincipal() {
   };
 
   return (
+<<<<<<< HEAD
     <AppBar position="fixed" sx={{ backgroundColor: "#ae05ae" }}>
+=======
+    <AppBar position="fixed">
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <img
@@ -153,6 +157,7 @@ function NavPrincipal() {
           </Search>
           {token && (
             <NavLink to="/posts">
+<<<<<<< HEAD
               <Button
                 variant="contained"
                 sx={{
@@ -160,6 +165,9 @@ function NavPrincipal() {
                   "&:hover": { backgroundColor: "purple" },
                 }}
               >
+=======
+              <Button variant="contained" sx={{ backgroundColor: "orange" }}>
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
                 Subir post
               </Button>
             </NavLink>
@@ -169,11 +177,15 @@ function NavPrincipal() {
             {token ? (
               <Tooltip title="Configuraciones">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+<<<<<<< HEAD
                   <Avatar
                     alt={user || "d"}
                     src="/static/images/avatar/2.jpg"
                     sx={{ backgroundColor: "#a9fce8" }}
                   />
+=======
+                  <Avatar alt={user || "d"} src="/static/images/avatar/2.jpg" />
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
                 </IconButton>
               </Tooltip>
             ) : (

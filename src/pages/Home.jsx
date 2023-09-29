@@ -10,7 +10,12 @@ function Home() {
   return (
     <div>
       <NavPrincipal />
+<<<<<<< HEAD
       <Box sx={{ mt: "80px" }}>
+=======
+      <Box sx={{ mt: "70px" }}>
+        <h1>Bienvenido!</h1>
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
         <Posts />
       </Box>
     </div>

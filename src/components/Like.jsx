@@ -72,12 +72,20 @@ function Like({ post, like }) {
       width="45px"
       sx={{
         cursor: "pointer",
+<<<<<<< HEAD
         backgroundColor: "#a9fce8",
+=======
+        backgroundColor: "#ededed",
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
         p: "3px",
         borderRadius: "5px",
         margin: "3px",
         ":hover": {
+<<<<<<< HEAD
           backgroundColor: "#ae05ae",
+=======
+          backgroundColor: "#c7c7c7",
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
         },
       }}
       onClick={handleLikeClick}

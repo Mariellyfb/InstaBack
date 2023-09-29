@@ -3,9 +3,13 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UseContext";
 import { formContainer, signup, imagen1, imagen2 } from "./Signup.module.css";
 import imagenSignup from "../assets/signup.png";
+<<<<<<< HEAD
 import logo from "../assets/logo.jpeg";
 import { Alert } from "@mui/material";
 import styles from "./Signup.module.css";
+=======
+import { Alert } from "@mui/material";
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
 
 function Signup() {
   const [user, setUser] = useUser();
