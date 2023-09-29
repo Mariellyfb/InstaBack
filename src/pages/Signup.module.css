@@ -1,15 +1,20 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  gap: 2rem;
+}
+
+.signup {
+  width: 100vw;
+  height: 92.7vh;
 }
 .formContainer {
-  padding: 4rem 2rem;
+  max-width: 25rem;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 120vh;
+  height: 100vh;
 }
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
@@ -55,7 +60,7 @@
 }
 
 .imagen2 {
-  width: 150px;
+  width: 100px;
   height: 100px;
 }
 
@@ -74,6 +79,10 @@
 }
 
 @media (min-width: 768px) {
+  .formContainer {
+    width: 100vw;
+  }
+
   .imagen1 {
     display: flex;
     align-self: center;

@@ -23,7 +23,9 @@ const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
   backgroundColor: "purple",
+  backgroundColor: "purple",
   "&:hover": {
+    backgroundColor: "purple",
     backgroundColor: "purple",
   },
   marginLeft: 0,
@@ -65,14 +67,17 @@ function NavPrincipal() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const token = localStorage.getItem("token");
   const user = localStorage.getItem("user");
+  const user = localStorage.getItem("user");
   const navigate = useNavigate();
   const { setSearchTerm } = usePostsContext();
 
   const logout = () => {
     localStorage.removeItem("token");
     return navigate("/login");
+    return navigate("/login");
   };
 
+  const settings = [{ text: `User : ${user}` }, { text: "Logout", to: logout }];
   const settings = [{ text: `User : ${user}` }, { text: "Logout", to: logout }];
 
   const handleOpenNavMenu = (event) => {
@@ -118,6 +123,7 @@ function NavPrincipal() {
             }}
           >
             InstaHack
+            InstaHack
           </Typography>
 
           <Typography
@@ -134,7 +140,9 @@ function NavPrincipal() {
             }}
           >
             InstaHack
+            InstaHack
           </Typography>
+
 
           <Search>
             <SearchIconWrapper>
@@ -178,12 +186,17 @@ function NavPrincipal() {
                 <NavLink to="/login">
                   <Button
                     sx={{ backgroundColor: "purple" }}
+                    sx={{ backgroundColor: "purple" }}
                     variant="contained"
                   >
                     Login
                   </Button>
                 </NavLink>
                 <NavLink to="/signup">
+                  <Button
+                    sx={{ backgroundColor: "purple" }}
+                    variant="contained"
+                  >
                   <Button
                     sx={{ backgroundColor: "purple" }}
                     variant="contained"

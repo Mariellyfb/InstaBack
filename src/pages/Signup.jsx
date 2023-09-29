@@ -3,9 +3,19 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UseContext";
 import { formContainer, signup, imagen1, imagen2 } from "./Signup.module.css";
 import imagenSignup from "../assets/signup.png";
+<<<<<<< HEAD
 import logo from "../assets/logo.png";
 import { Alert } from "@mui/material";
 import styles from "./Signup.module.css";
+=======
+<<<<<<< HEAD
+import logo from "../assets/logo.jpeg";
+import { Alert } from "@mui/material";
+import styles from "./Signup.module.css";
+=======
+import { Alert } from "@mui/material";
+>>>>>>> 1b295d280e5ee6a4d1f2d3918573389aaa1e1f86
+>>>>>>> 6752957d69ff5018f7d2d722d0d50054df3fc99e
 
 function Signup() {
   const [user, setUser] = useUser();
@@ -16,7 +26,11 @@ function Signup() {
   const [error, setError] = useState();
   const [sucessRegister, setSucessRegister] = useState({
     state: false,
+<<<<<<< HEAD
     text: "Se registró correctamente",
+=======
+    text: "Se registro correctamente",
+>>>>>>> 6752957d69ff5018f7d2d722d0d50054df3fc99e
   });
 
   const navigate = useNavigate();
@@ -101,10 +115,11 @@ function Signup() {
         /> */}
 
           {/*    <p> {password === passwordV ? "coinciden" : "no coinciden"}</p> */}
-          <footer>
+           <footer>
             ¿Ya tienes cuenta? <Link to="/login">Inicia Sesión</Link>
           </footer>
         </form>
+       
       </div>
     </div>
   );
