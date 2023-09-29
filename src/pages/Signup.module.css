@@ -4,14 +4,12 @@
   gap: 2rem;
 }
 .formContainer {
-  max-width: 25rem;
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  /*  gap: 4rem; */
+  height: 120vh;
 }
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
@@ -45,14 +43,22 @@
 .formContainer > form > footer > a {
   text-decoration: none;
 }
+
 .signup {
+  background-color: rgb(249, 249, 249);
   display: flex;
   justify-content: center;
 }
 
-.signup > img {
+.imagen1 {
   display: none;
 }
+
+.imagen2 {
+  width: 150px;
+  height: 100px;
+}
+
 .formContainer > form > button {
   background-color: #007bff;
   color: #fff;
@@ -68,7 +74,7 @@
 }
 
 @media (min-width: 768px) {
-  .signup > img {
+  .imagen1 {
     display: flex;
     align-self: center;
     height: 70vh;

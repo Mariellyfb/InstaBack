@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useUser } from "../context/UseContext";
 import { formContainer } from "./Login.module.css";
 import { saveToken } from "../utils/token";
-import { useNavigate } from "react-router-dom"; // Asegúrate de que la importación sea correcta
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 const url = import.meta.env.VITE_API_URL;
 export const Login = () => {
   const [user, setUser] = useUser();
@@ -11,8 +13,6 @@ export const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState();
   const navigate = useNavigate();
-  /*if (user) navigator("/"); */
-  //  return <Navigate to="/" />;
 
   console.log(import.meta.env.VITE_API_URL);
   const handleSubmit = async (e) => {
@@ -24,22 +24,22 @@ export const Login = () => {
     });
     console.log(res);
     const data = await res.json();
-    /* const token = data.data.token; */
+
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
     } else {
+      console.log(data);
       setUser(data);
       saveToken(data.data.token);
-      navigate("/");
-      console.log(data);
-      console.log(data.data.token);
-      console.log(data.data.description);
+      localStorage.setItem("user", data.data.username);
+      window.location.href = "/";
     }
   };
 
   return (
     <div className={formContainer}>
       <h1>InstaHack</h1>
+      <img src={logo} alt="" className="logo" width={"90px"} height={"90px"} />
       <form onSubmit={handleSubmit}>
         <label>
           <input
@@ -59,15 +59,6 @@ export const Login = () => {
           />
         </label>
         <button>Iniciar sesión</button>
-        {/*  <input
-          placeholder="Repite la Contraseña"
-          value={passwordV}
-          onChange={(e) => setPasswordV(e.target.value)}
-          required
-          type="password"
-        /> */}
-
-        {/*    <p> {password === passwordV ? "coinciden" : "no coinciden"}</p> */}
         <footer>
           ¿No tienes cuenta? <Link to="/signup">¡Registrate!</Link>
         </footer>
@@ -75,5 +66,3 @@ export const Login = () => {
     </div>
   );
 };
-
-/* export default Login; */

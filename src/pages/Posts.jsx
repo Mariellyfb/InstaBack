@@ -3,18 +3,40 @@ import { useState, useEffect } from "react";
 import { containerPosts } from "./Posts.module.css";
 import Like from "../components/Like";
 import { usePostsContext } from "../context/UseContext";
+import { Avatar, Box, Typography } from "@mui/material";
 
 export function Posts() {
   const { like } = usePosts();
   const { posts } = usePostsContext();
   const url = `${import.meta.env.VITE_API_URL}`;
 
+  console.log(posts);
+
   return (
     <div className={containerPosts}>
       {posts ? (
         posts.map((post) => (
           <div key={post.id}>
-            {post.username}
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="start"
+              sx={{ m: "5px" }}
+            >
+              <Avatar
+                sx={{
+                  width: "25px",
+                  height: "25px",
+                  fontSize: "15px",
+                  bgcolor: "#ae05ae",
+                }}
+                alt={post.username}
+                src="/static/images/avatar/2.jpg"
+              />
+              <Typography fontSize="18px" sx={{ ml: "-20px" }}>
+                {post.username}
+              </Typography>
+            </Box>
 
             {/*{post.createdAt}*/}
             <img

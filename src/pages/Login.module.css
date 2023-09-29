@@ -1,18 +1,17 @@
 * {
   margin: 0;
   box-sizing: border-box;
-
-  gap: 2rem;
 }
+
 .formContainer {
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  /*  gap: 4rem; */
+  height: 90vh;
 }
+
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
   font-size: 5rem;
@@ -53,7 +52,7 @@
   display: none;
 } */
 .formContainer > form > button {
-  background-color: #007bff;
+  background-color: #ae05ae;
   color: #fff;
   padding: 10px 70px;
   font-size: 18px;
@@ -62,5 +61,5 @@
   cursor: pointer;
 }
 .formContainer > form button:hover {
-  background-color: #0056b3;
+  background-color: purple;
 }
