@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-//import "../components/Footer.css";
-
->>>>>>> 6752957d69ff5018f7d2d722d0d50054df3fc99e
 import { Box } from "@mui/material";
 
 function Footer() {
