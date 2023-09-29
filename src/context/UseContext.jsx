@@ -10,6 +10,7 @@ export const useUser = () => useContext(UserContext);
 export const usePostsContext = () => useContext(PostsContext);
 
 export function PostsProvider({ children }) {
+  const token = localStorage.getItem("token");
   const [allPosts, setAllPosts] = useState([]);
   const [displayedPosts, setDisplayedPosts] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,7 +23,6 @@ export function PostsProvider({ children }) {
       );
     });
 
-    console.log(filteredPosts);
     setDisplayedPosts(filteredPosts);
   };
 
@@ -30,13 +30,21 @@ export function PostsProvider({ children }) {
     searchData(searchTerm);
   }, [searchTerm]);
 
-  useEffect(() => {
-    fetch("http://localhost:4000/posts/home")
+  const getAllPosts = () => {
+    fetch("http://localhost:4000/posts/home", {
+      headers: {
+        Authorization: token,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setAllPosts(data.data);
         setDisplayedPosts(data.data);
       });
+  };
+
+  useEffect(() => {
+    getAllPosts();
   }, []);
 
   return (
@@ -45,6 +53,7 @@ export function PostsProvider({ children }) {
         posts: displayedPosts,
         setPosts: setDisplayedPosts,
         setSearchTerm,
+        getAllPosts,
       }}
     >
       {children}

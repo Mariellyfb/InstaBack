@@ -28,12 +28,11 @@ export const Login = () => {
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
     } else {
+      console.log(data);
       setUser(data);
       saveToken(data.data.token);
-      navigate("/");
-      console.log(data);
-      console.log(data.data.token);
-      console.log(data.data.description);
+      localStorage.setItem("user", data.data.username);
+      window.location.href = "/";
     }
   };
 

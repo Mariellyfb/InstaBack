@@ -20,7 +20,6 @@ function Upload() {
 
     //Aqui el console.log???????
 
-    console.log(token);
     try {
       const res = await fetch("http://localhost:4000/posts", {
         method: "POST",
@@ -35,7 +34,7 @@ function Upload() {
       }
 
       const data = await res.json();
-      navigate("/");
+      window.location.href = "/";
       console.log("Respuesta del servidor:", data);
     } catch (error) {
       console.error("Error al realizar la solicitud:", error.message);

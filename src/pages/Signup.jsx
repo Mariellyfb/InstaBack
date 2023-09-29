@@ -1,8 +1,11 @@
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useUser } from "../context/UseContext";
-import { formContainer, signup } from "./Signup.module.css";
+import { formContainer, signup, imagen1, imagen2 } from "./Signup.module.css";
 import imagenSignup from "../assets/signup.png";
+import logo from "../assets/logo.jpeg";
+import { Alert } from "@mui/material";
+import styles from "./Signup.module.css";
 
 function Signup() {
   const [user, setUser] = useUser();
@@ -11,8 +14,14 @@ function Signup() {
   const [password, setPassword] = useState("");
   /*   const [passwordV, setPasswordV] = useState(""); */
   const [error, setError] = useState();
+  const [sucessRegister, setSucessRegister] = useState({
+    state: false,
+    text: "Se registro correctamente",
+  });
 
- /*  if (user) return <Navigate to="/" />; */
+  const navigate = useNavigate();
+
+  /*  if (user) return <Navigate to="/" />; */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,21 +32,40 @@ function Signup() {
       body: JSON.stringify({ username, email, password }),
     });
     const data = await res.json();
+
     if (!res.ok) {
-      console.log(data);
-      setError(data?.error || "Error de registro");
+      setError(data?.message || "Error de registro");
     } else {
       setUser(data);
+      setError("");
+      setSucessRegister({
+        state: true,
+        text: "Se registro correctamente",
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 3000);
     }
   };
 
   return (
     <div className={signup}>
-      <img src={imagenSignup} alt="" />
+      <img src={imagenSignup} alt="" className={imagen1} />
       <div className={formContainer}>
         <h1>InstaHack</h1>
+        <img src={logo} alt="" className={imagen2} />
         <form onSubmit={handleSubmit}>
           <p>Regístrate para ver fotos y videos de tus amigos</p>
+          {error && (
+            <Alert severity="error" sx={{ fontSize: "small" }}>
+              {error}
+            </Alert>
+          )}
+          {sucessRegister.state && (
+            <Alert severity="success" sx={{ fontSize: "small" }}>
+              {sucessRegister.text}
+            </Alert>
+          )}
           <label>
             <input
               placeholder="Username"
@@ -73,10 +101,11 @@ function Signup() {
         /> */}
 
           {/*    <p> {password === passwordV ? "coinciden" : "no coinciden"}</p> */}
-          <footer>
+           <footer>
             ¿Ya tienes cuenta? <Link to="/login">Inicia Sesión</Link>
           </footer>
         </form>
+       
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
-import MenuIcon from "@mui/icons-material/Menu";
+//import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Menu from "@mui/material/Menu";
 import Container from "@mui/material/Container";
@@ -18,13 +18,14 @@ import AdbIcon from "@mui/icons-material/Adb";
 import { NavLink, useNavigate } from "react-router-dom";
 import usePosts from "../../hooks/usePosts";
 import { usePostsContext } from "../../context/UseContext";
+import logo from "../../assets/logo.jpeg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: "purple",
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: "purple",
   },
   marginLeft: 0,
   width: "100%",
@@ -48,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -61,21 +61,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const pages = ["Products", "Pricing", "Blog"];
-
 function NavPrincipal() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const token = localStorage.getItem("token");
+  const user = localStorage.getItem("user");
   const navigate = useNavigate();
   const { setSearchTerm } = usePostsContext();
 
   const logout = () => {
     localStorage.removeItem("token");
-    return navigate("/");
+    return navigate("/login");
   };
 
-  const settings = [{ text: "Logout", to: logout }];
+  const settings = [{ text: `User : ${user}` }, { text: "Logout", to: logout }];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -93,94 +92,53 @@ function NavPrincipal() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: "#ae05ae" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <img
+            src={logo}
+            alt=""
+            style={{
+              display: { xs: "none", md: "flex" },
+              marginRight: 1,
+              width: "80px",
+              height: "80px",
+            }}
+          />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "Dancing Script, cursive",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            InstaHack
           </Typography>
 
-          {/*<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-              </Box>*/}
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "Dancing Script",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            InstaHack
           </Typography>
-          {/*<Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-            </Box>*/}
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -193,26 +151,46 @@ function NavPrincipal() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          {token && (
+            <NavLink to="/posts">
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: "#ae05ae",
+                  "&:hover": { backgroundColor: "purple" },
+                }}
+              >
+                Subir post
+              </Button>
+            </NavLink>
+          )}
 
           <Box sx={{ flexGrow: 0 }}>
             {token ? (
               <Tooltip title="Configuraciones">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Profile" src="/static/images/avatar/2.jpg" />
+                  <Avatar
+                    alt={user || "d"}
+                    src="/static/images/avatar/2.jpg"
+                    sx={{ backgroundColor: "#a9fce8" }}
+                  />
                 </IconButton>
               </Tooltip>
             ) : (
               <Box display="flex" gap="10px">
                 <NavLink to="/login">
                   <Button
-                    sx={{ backgroundColor: "orange" }}
+                    sx={{ backgroundColor: "purple" }}
                     variant="contained"
                   >
                     Login
                   </Button>
                 </NavLink>
                 <NavLink to="/signup">
-                  <Button sx={{ backgroundColor: "pink" }} variant="contained">
+                  <Button
+                    sx={{ backgroundColor: "purple" }}
+                    variant="contained"
+                  >
                     Register
                   </Button>
                 </NavLink>

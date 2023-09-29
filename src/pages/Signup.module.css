@@ -1,17 +1,21 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  gap: 2rem;
+}
+
+.signup{
+
+  width: 100vw;
+  height: 92.7vh;
 }
 .formContainer {
   max-width: 25rem;
-  padding: 4rem 2rem;
+  padding: 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /*  gap: 4rem; */
 }
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
@@ -45,14 +49,22 @@
 .formContainer > form > footer > a {
   text-decoration: none;
 }
+
 .signup {
+  background-color: rgb(249, 249, 249);
   display: flex;
   justify-content: center;
 }
 
-.signup > img {
+.imagen1 {
   display: none;
 }
+
+.imagen2 {
+  width: 100px;
+  height: 100px;
+}
+
 .formContainer > form > button {
   background-color: #007bff;
   color: #fff;
@@ -68,7 +80,16 @@
 }
 
 @media (min-width: 768px) {
-  .signup > img {
+
+  
+
+
+  .formContainer {
+    width: 100vw;
+  } 
+
+  
+  .imagen1 {
     display: flex;
     align-self: center;
     height: 70vh;

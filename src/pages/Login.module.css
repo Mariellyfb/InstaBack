@@ -2,20 +2,21 @@
   margin: 0;
   box-sizing: border-box;
 
-  gap: 2rem;
+  /* gap: 2rem; */
 }
 .formContainer {
-  padding: 4rem 2rem;
+  /* padding: 4rem 2rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 93vh;
   /*  gap: 4rem; */
 }
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
   font-size: 5rem;
+  margin: 2rem;
 }
 
 .formContainer > form {
@@ -23,12 +24,14 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 3rem;
 }
 
 .formContainer > form > p {
   max-width: 18rem;
   text-align: center;
   font-size: 1.5rem;
+  
 }
 .formContainer > form > label > input {
   font-size: 1.5rem;
@@ -53,6 +56,7 @@
   display: none;
 } */
 .formContainer > form > button {
+  margin: 4rem;
   background-color: #007bff;
   color: #fff;
   padding: 10px 70px;
