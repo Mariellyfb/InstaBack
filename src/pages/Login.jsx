@@ -74,15 +74,6 @@ export const Login = () => {
           />
         </label>
         <button>Iniciar sesión</button>
-        {/*  <input
-          placeholder="Repite la Contraseña"
-          value={passwordV}
-          onChange={(e) => setPasswordV(e.target.value)}
-          required
-          type="password"
-        /> */}
-
-        {/*    <p> {password === passwordV ? "coinciden" : "no coinciden"}</p> */}
         <footer>
           ¿No tienes cuenta? <Link to="/signup">¡Registrate!</Link>
         </footer>
@@ -90,5 +81,3 @@ export const Login = () => {
     </div>
   );
 };
-
-/* export default Login; */

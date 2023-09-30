@@ -116,7 +116,8 @@ function NavPrincipal() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
-              textDecoration: "none",
+              fontSize: "35px",
+              display: { xs: "none", md: "block" },
             }}
           >
             InstaHack

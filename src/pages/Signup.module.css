@@ -1,7 +1,11 @@
 * {
   margin: 0;
   box-sizing: border-box;
-  gap: 2rem;
+}
+
+.signup {
+  width: 100vw;
+  height: 92.7vh;
 }
 .formContainer {
   display: flex;

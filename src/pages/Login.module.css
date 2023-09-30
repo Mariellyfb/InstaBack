@@ -3,6 +3,7 @@
   box-sizing: border-box;
   gap: 2rem;
 }
+
 .formContainer {
   display: flex;
   flex-direction: column;
@@ -10,6 +11,7 @@
   align-items: center;
   height: 90vh;
 }
+
 .formContainer > h1 {
   font-family: "Dancing Script", cursive;
   font-size: 3.5rem;
