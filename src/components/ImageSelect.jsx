@@ -1,10 +1,10 @@
 import { useState } from "react";
-import picker from "../assets/pick.png";
+import logo from "../assets/logo.png";
 import "./ImageSelect.css";
 
 function ImageSelect({ onChange }) {
   const [img, setImg] = useState();
-  const [preview, setPreview] = useState(picker);
+  const [preview, setPreview] = useState(logo);
 
   const handleFile = (e) => {
     const file = e.target.files[0];
