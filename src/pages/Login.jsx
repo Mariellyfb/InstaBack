@@ -15,10 +15,9 @@ export const Login = () => {
   const [error, setError] = useState();
   const navigate = useNavigate();
 
-  console.log(import.meta.env.VITE_API_URL);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`${url}users/login`, {
+    const res = await fetch(`${url}/users/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -30,12 +29,13 @@ export const Login = () => {
     if (!res.ok) {
       setError(data?.error || "Error al iniciar sesión");
     } else {
-      console.log(data);
+      console.log(res);
       setUser(data);
       saveToken(data.data.token);
       localStorage.setItem("user", data.data.username);
       window.location.href = "/";
     }
+    console.log(res);
   };
 
   return (

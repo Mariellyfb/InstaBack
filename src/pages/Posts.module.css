@@ -1,6 +1,4 @@
-/* Estilos para el contenedor principal */
 .containerPosts {
-  /*   max-width: 600px; */
   margin: 0 auto;
   display: flex;
   padding: 20px;
@@ -10,7 +8,6 @@
   font-size: 2.5rem;
 }
 
-/* Estilos para el botón de carga */
 .containerPosts > button {
   background-color: #3897f0;
   color: white;
@@ -20,7 +17,6 @@
   cursor: pointer;
 }
 
-/* Estilos para cada publicación */
 .containerPosts > div {
   margin-top: 20px;
   border: 1px solid #ccc;
@@ -29,24 +25,20 @@
   border-radius: 5px;
 }
 
-/* Estilos para el texto de la descripción */
 .containerPosts > p {
   margin: 0;
 }
 
-/* Estilos para el número de likes */
 div > div > div > span {
   font-weight: bold;
   margin-right: 5px;
 }
 
-/* Estilos para las imágenes de las publicaciones */
 .containerPosts img {
   align-items: center;
   justify-content: center;
   width: 600px;
   height: 800px;
-  /*   height: auto; */
   display: block;
   margin-top: 10px;
 }

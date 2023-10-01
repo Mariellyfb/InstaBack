@@ -5,8 +5,8 @@ import { formContainer, signup, imagen1, imagen2 } from "./Signup.module.css";
 import imagenSignup from "../assets/signup.png";
 import logo from "../assets/logo.png";
 import { Alert } from "@mui/material";
-import styles from "./Signup.module.css";
 
+const url = import.meta.env.VITE_API_URL;
 function Signup() {
   const [user, setUser] = useUser();
   const [username, setUsername] = useState("");
@@ -23,7 +23,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:4000/users/signup", {
+    const res = await fetch(`${url}/users/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),
@@ -89,15 +89,7 @@ function Signup() {
             />
           </label>
           <button>Enviar</button>
-          {/*  <input
-          placeholder="Repite la Contraseña"
-          value={passwordV}
-          onChange={(e) => setPasswordV(e.target.value)}
-          required
-          type="password"
-        /> */}
 
-          {/*    <p> {password === passwordV ? "coinciden" : "no coinciden"}</p> */}
           <footer>
             ¿Ya tienes cuenta? <Link to="/login">Inicia Sesión</Link>
           </footer>

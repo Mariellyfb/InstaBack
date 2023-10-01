@@ -1,5 +1,4 @@
 import usePosts from "../hooks/usePosts";
-import { useState, useEffect } from "react";
 import { containerPosts } from "./Posts.module.css";
 import Like from "../components/Like";
 import { usePostsContext } from "../context/UseContext";

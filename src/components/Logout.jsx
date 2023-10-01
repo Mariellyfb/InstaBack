@@ -6,13 +6,8 @@ import { getToken } from "../utils/token";
 export function Logout() {
   const [user, setUser] = useUser();
   const handleLogout = () => {
-    /*     let token = getToken(); */
     deleteToken();
     setUser(null);
-
-    /*  if (token) {
-      delete;
-    } */
 
     <Navigate to="/login"></Navigate>;
     console.log(getToken());

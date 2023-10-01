@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 
+const url = import.meta.env.VITE_API_URL;
 function usePosts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/posts/home")
+    fetch(`${url}/posts/home`)
       .then((res) => res.json())
       .then((data) => setPosts(data.data));
   }, []);
   const like = async (postId, token) => {
-    const res = await fetch(`http://localhost:4000/posts/${post.id}/likes`, {
+    const res = await fetch(`${url}/posts/${postId}/likes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +22,7 @@ function usePosts() {
     if (!res.ok) {
       throw new Error("Error en la solicitud");
     }
-    const newPosts = await fetch("http://localhost:4000/posts/home")
+    const newPosts = await fetch(`${url}/posts/home`)
       .then((res) => res.json())
       .then((data) => setPosts(data.data));
   };

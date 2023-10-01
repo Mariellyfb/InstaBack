@@ -6,6 +6,6 @@ export const PostUser = () => {
   let token = getToken(); // Aqui tienes el token
   const request = fetch();
   console.log(token);
-
+  //(PAGINA DE CADA USER)
   return <h2>{params.id}</h2>;
 };

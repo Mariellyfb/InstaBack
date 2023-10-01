@@ -4,25 +4,20 @@ import { getToken } from "../utils/token";
 import { Box } from "@mui/material";
 import { usePostsContext } from "../context/UseContext";
 
+const url = import.meta.env.VITE_API_URL;
+
 function Like({ post, like }) {
   const [emoji, setEmoji] = useState("🤍");
   const [isLiked, setIsLiked] = useState(false);
   const { getAllPosts } = usePostsContext();
-  /* 
-  useEffect(() => {
-    const post = posts.find((post) => post.id === postId);
 
-    if (post && post.isLiked) {
-      setIsLiked(false);
-      setEmoji("❤️");
-    }
-  }, [posts, postId]); */
   let token = getToken();
 
   const handleLikeClick = async (e) => {
     e.preventDefault();
+    console.log(url);
 
-    const res = await fetch(`http://localhost:4000/posts/${post.id}/likes`, {
+    const res = await fetch(`${url}/posts/${post.id}/likes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,20 +28,6 @@ function Like({ post, like }) {
     const data = await res.json();
 
     getAllPosts();
-    /*  e.preventDefault();
-    const res = await fetch(`http://localhost:4000/posts/likes/${postId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      }, 
-    }
-
-    const data = await res.json();
-    const numLikes = data.data;
-
-    console.log(numLikes);
-    console.log(token);*/
 
     try {
       like(post.id, token);
@@ -54,7 +35,6 @@ function Like({ post, like }) {
         setIsLiked(true);
         setEmoji("❤️");
       }
-      /*     console.log(isLiked); */
 
       if (isLiked) {
         return;

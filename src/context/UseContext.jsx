@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-//Evaluar meter aqui un servicio con una funcion para abtener los datos de usuario
 
-//Utilizar aqui lo de obtener el token
-
+const url = import.meta.env.VITE_API_URL;
 const UserContext = createContext();
 const PostsContext = createContext();
 
@@ -31,7 +29,7 @@ export function PostsProvider({ children }) {
   }, [searchTerm]);
 
   const getAllPosts = () => {
-    fetch("http://localhost:4000/posts/home", {
+    fetch(`${url}/posts/home`, {
       headers: {
         Authorization: token,
       },
