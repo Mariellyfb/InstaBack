@@ -4,8 +4,6 @@ import { getToken } from "../utils/token";
 import { Box } from "@mui/material";
 import { usePostsContext } from "../context/UseContext";
 
-const url = import.meta.env.VITE_API_URL;
-
 function Like({ post, like }) {
   const [emoji, setEmoji] = useState("🤍");
   const [isLiked, setIsLiked] = useState(false);
@@ -15,9 +13,8 @@ function Like({ post, like }) {
 
   const handleLikeClick = async (e) => {
     e.preventDefault();
-    console.log(url);
 
-    const res = await fetch(`${url}/posts/${post.id}/likes`, {
+    const res = await fetch(`http://localhost:4000/posts/${post.id}/likes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

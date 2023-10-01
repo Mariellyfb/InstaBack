@@ -6,7 +6,6 @@ import imagenSignup from "../assets/signup.png";
 import logo from "../assets/logo.png";
 import { Alert } from "@mui/material";
 
-const url = import.meta.env.VITE_API_URL;
 function Signup() {
   const [user, setUser] = useUser();
   const [username, setUsername] = useState("");
@@ -23,7 +22,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`${url}/users/signup`, {
+    const res = await fetch("http://localhost:4000/users/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, email, password }),

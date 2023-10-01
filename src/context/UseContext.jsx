@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-const url = import.meta.env.VITE_API_URL;
 const UserContext = createContext();
 const PostsContext = createContext();
 
@@ -29,7 +28,7 @@ export function PostsProvider({ children }) {
   }, [searchTerm]);
 
   const getAllPosts = () => {
-    fetch(`${url}/posts/home`, {
+    fetch("http://localhost:4000/posts/home", {
       headers: {
         Authorization: token,
       },

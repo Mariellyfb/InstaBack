@@ -5,7 +5,6 @@ import { getToken } from "../utils/token";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
-const url = import.meta.env.VITE_API_URL;
 function Upload() {
   const [post, setPost] = useState(null);
   const [description, setDescription] = useState("");
@@ -21,7 +20,7 @@ function Upload() {
     let token = getToken();
 
     try {
-      const res = await fetch(`${url}/posts`, {
+      const res = await fetch("http://localhost:4000/posts", {
         method: "POST",
         body: fd,
         headers: {
