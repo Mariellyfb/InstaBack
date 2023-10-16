@@ -3,6 +3,7 @@ import { containerPosts } from "./Posts.module.css";
 import Like from "../components/Like";
 import { usePostsContext } from "../context/UseContext";
 import { Avatar, Box, Typography } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export function Posts() {
   const { like } = usePosts();
@@ -16,26 +17,28 @@ export function Posts() {
       {posts ? (
         posts.map((post) => (
           <div key={post.id}>
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="start"
-              sx={{ m: "5px" }}
-            >
-              <Avatar
-                sx={{
-                  width: "25px",
-                  height: "25px",
-                  fontSize: "15px",
-                  bgcolor: "#ae05ae",
-                }}
-                alt={post.username}
-                src="/static/images/avatar/2.jpg"
-              />
-              <Typography fontSize="18px" sx={{ ml: "-20px" }}>
-                {post.username}
-              </Typography>
-            </Box>
+            <NavLink to={`posts/${post.userId}`}>
+              <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="start"
+                sx={{ m: "5px" }}
+              >
+                <Avatar
+                  sx={{
+                    width: "25px",
+                    height: "25px",
+                    fontSize: "15px",
+                    bgcolor: "#ae05ae",
+                  }}
+                  alt={post.username}
+                  src="/static/images/avatar/2.jpg"
+                />
+                <Typography fontSize="18px" sx={{ ml: "-20px" }}>
+                  {post.username}
+                </Typography>
+              </Box>
+            </NavLink>
 
             {/*{post.createdAt}*/}
             <img
