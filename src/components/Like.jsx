@@ -59,7 +59,7 @@ function Like({ post, like }) {
       }}
       onClick={handleLikeClick}
     >
-      {post.likedByMe ? "❤️" : "🤍"} {post.numLikes}
+      {isLiked ? "❤️" : "🤍"} {post.numLikes}
     </Box>
   );
 }

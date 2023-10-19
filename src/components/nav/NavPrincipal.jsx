@@ -16,6 +16,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { NavLink, useNavigate } from "react-router-dom";
 import { usePostsContext } from "../../context/UseContext";
 import logo from "../../assets/logo.png";
+import upload from "../../assets/upload.png";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -156,9 +157,17 @@ function NavPrincipal() {
                 sx={{
                   backgroundColor: "#ae05ae",
                   "&:hover": { backgroundColor: "purple" },
+                  width: "10px",
+                  height: "40px",
                 }}
               >
-                Subir post
+                <img
+                  src={upload}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                  }}
+                />
               </Button>
             </NavLink>
           )}

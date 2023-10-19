@@ -30,23 +30,31 @@ export const PostUser = () => {
       <div>
         <Avatar
           sx={{
-            width: "100px",
-            height: "100px",
-            fontSize: "40px",
+            width: "60px",
+            height: "60px",
+            fontSize: "30px",
             bgcolor: "#ae05ae",
+            ml: "20px",
+            mt: "20px",
           }}
           alt={infoUser.username}
-          src="/static/images/avatar/2.jpg" // Puedes proporcionar la URL del avatar si tienes una
+          src="/static/images/avatar/2.jpg"
         />
-        <Typography fontSize="24px" sx={{ mt: "10px" }}>
+        <Typography
+          fontSize="24px"
+          sx={{ mt: "10px", fontWeight: "bold", ml: "20px" }}
+        >
           {infoUser.username}
         </Typography>
-        <Typography fontSize="18px" sx={{ mt: "10px" }}>
+        <Typography
+          fontSize="18px"
+          sx={{ mt: "10px", fontFamily: "cursive", ml: "20px", mb: "25px" }}
+        >
           {infoUser.email}
         </Typography>
       </div>
       {userPosts?.map((post) => (
-        <div key={post.id}>
+        <div key={post.id} style={{ maxWidth: "650px", ml: "30px" }}>
           <Box
             display="flex"
             alignItems="center"
@@ -63,12 +71,14 @@ export const PostUser = () => {
               alt={post.username}
               src="/static/images/avatar/2.jpg"
             />
-            <Typography fontSize="18px" sx={{ ml: "-20px" }}>
+            <Typography
+              fontSize="18px"
+              sx={{ ml: "-20px", fontWeight: "bold" }}
+            >
               {post.username}
             </Typography>
           </Box>
 
-          {/*{post.createdAt}*/}
           <img
             style={{ width: "100%", height: "100%" }}
             src={`${url}${post.photo}`}
