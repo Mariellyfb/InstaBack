@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getToken } from "../utils/token";
 import { useEffect, useState } from "react";
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, TextField, Typography } from "@mui/material";
 import Like from "../components/Like";
 import usePosts from "../hooks/usePosts";
 
@@ -42,51 +42,59 @@ export const PostUser = () => {
         />
         <Typography
           fontSize="24px"
-          sx={{ mt: "10px", fontWeight: "bold", ml: "20px" }}
+          sx={{ mt: "10px", fontWeight: "bold", ml: "25px" }}
         >
           {infoUser.username}
         </Typography>
-        <Typography
+        <Box
           fontSize="18px"
-          sx={{ mt: "10px", fontFamily: "cursive", ml: "20px", mb: "25px" }}
+          sx={{
+            mb: "15px",
+            fontFamily: "cursive",
+            ml: "25px",
+          }}
         >
-          {infoUser.email}
-        </Typography>
+          <a
+            href={`mailto:${infoUser.email}`}
+            style={{
+              textDecoration: "none",
+              color: "purple",
+            }}
+          >
+            {infoUser.email}
+          </a>
+        </Box>
+        {/*<TextField multiline={5} label="Biografia" />*/}
       </div>
       {userPosts?.map((post) => (
-        <div key={post.id} style={{ maxWidth: "650px", ml: "30px" }}>
+        <div key={post.id}>
           <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="start"
-            sx={{ m: "5px" }}
+            border={{ border: "solid" }}
+            borderColor={{ color: "purple" }}
+            borderRadius={{ borderRadius: "8px" }}
+            sx={{
+              ml: "20px",
+              mb: "40px",
+              mr: "20px",
+              maxWidth: "650px",
+            }}
           >
-            <Avatar
-              sx={{
-                width: "25px",
-                height: "25px",
-                fontSize: "15px",
-                bgcolor: "#ae05ae",
-              }}
-              alt={post.username}
-              src="/static/images/avatar/2.jpg"
-            />
             <Typography
               fontSize="18px"
-              sx={{ ml: "-20px", fontWeight: "bold" }}
+              sx={{ fontWeight: "bold", padding: "5px" }}
             >
               {post.username}
             </Typography>
+
+            <img
+              style={{ width: "100%", height: "100%" }}
+              src={`${url}${post.photo}`}
+              alt={post.description}
+            />
+            <span> {post.description}</span>
+
+            <Like post={post} like={like} />
           </Box>
-
-          <img
-            style={{ width: "100%", height: "100%" }}
-            src={`${url}${post.photo}`}
-            alt={post.description}
-          />
-          <span> {post.description}</span>
-
-          <Like post={post} like={like} />
         </div>
       ))}
     </>

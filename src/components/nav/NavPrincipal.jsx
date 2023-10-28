@@ -34,7 +34,7 @@ const Search = styled("div")(({ theme }) => ({
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
+  padding: theme.spacing(0, 1),
   height: "100%",
   position: "absolute",
   pointerEvents: "none",
@@ -50,10 +50,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
     width: "100%",
+    height: "75%",
     [theme.breakpoints.up("sm")]: {
-      width: "12ch",
+      width: "10ch",
       "&:focus": {
-        width: "20ch",
+        width: "17ch",
       },
     },
   },
@@ -99,8 +100,8 @@ function NavPrincipal() {
             style={{
               display: { xs: "none", md: "flex" },
               marginRight: 1,
-              width: "60px",
-              height: "60px",
+              width: "50px",
+              height: "50px",
             }}
           />
           <Typography
@@ -114,7 +115,7 @@ function NavPrincipal() {
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
-              fontSize: "35px",
+              fontSize: "32px",
               display: { xs: "none", md: "block" },
             }}
           >
@@ -158,7 +159,7 @@ function NavPrincipal() {
                   backgroundColor: "#ae05ae",
                   "&:hover": { backgroundColor: "purple" },
                   width: "10px",
-                  height: "40px",
+                  height: "30px",
                 }}
               >
                 <img
@@ -187,7 +188,16 @@ function NavPrincipal() {
               <Box display="flex" gap="10px">
                 <NavLink to="/login">
                   <Button
-                    sx={{ backgroundColor: "purple" }}
+                    sx={{
+                      backgroundColor: "purple",
+                      "&:hover": { backgroundColor: "#a9fce8" },
+                      pt: "5px",
+                      pb: "5px",
+                      pl: "10px",
+                      pr: "10px",
+                      fontSize: ".8rem",
+                      fontWeight: "400",
+                    }}
                     variant="contained"
                   >
                     Login
@@ -195,7 +205,16 @@ function NavPrincipal() {
                 </NavLink>
                 <NavLink to="/signup">
                   <Button
-                    sx={{ backgroundColor: "purple" }}
+                    sx={{
+                      pt: "5px",
+                      pb: "5px",
+                      pl: "10px",
+                      pr: "10px",
+                      backgroundColor: "purple",
+                      "&:hover": { backgroundColor: "#a9fce8" },
+                      fontSize: ".8rem",
+                      fontWeight: "400",
+                    }}
                     variant="contained"
                   >
                     Register

@@ -18,7 +18,7 @@ function Footer() {
           pt: "10px",
           pb: "10px",
           display: "flex",
-          fontSize: "1.5rem",
+          fontSize: "1.3rem",
           justifyContent: "center",
           backgroundColor: "#ae05ae",
           position: "fixed",

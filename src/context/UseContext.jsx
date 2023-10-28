@@ -28,7 +28,10 @@ export function PostsProvider({ children }) {
   }, [searchTerm]);
 
   const getAllPosts = () => {
-    fetch("http://localhost:4000/posts/home", {
+    const URL = token
+      ? "http://localhost:4000/posts/home"
+      : "http://localhost:4000/posts/home/noauth";
+    fetch(URL, {
       headers: {
         Authorization: token,
       },
